@@ -1,0 +1,80 @@
+<div class="modal-backdrop" (click)="close.emit()"></div>
+
+<div class="modal-container">
+  <h2 class="modal-title">New Task</h2>
+
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" [(ngModel)]="title" />
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea [(ngModel)]="description"></textarea>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label>Priority</label>
+      <select [(ngModel)]="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Status</label>
+      <select [(ngModel)]="status">
+        <option value="pending">Pending</option>
+        <option value="in-progress">In Progress</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Due Date</label>
+    <input type="date" [(ngModel)]="dueDate" />
+  </div>
+
+  <div class="form-group">
+    <label>Tags</label>
+
+    <div class="tag-options">
+      <span
+        *ngFor="let tag of defaultTags"
+        class="tag-option"
+        [class.active]="tags.includes(tag)"
+        (click)="toggleTag(tag)"
+      >
+        {{ tag }}
+      </span>
+    </div>
+
+    <div class="tag-selected-container">
+      <span
+        class="tag-selected"
+        *ngFor="let t of tags"
+      >
+        {{ t }}
+        <button class="tag-x" (click)="removeTag(t)">×</button>
+      </span>
+    </div>
+
+    <div class="tag-add">
+      <input
+        type="text"
+        placeholder="Add tag..."
+        [(ngModel)]="newTag"
+        (keydown.enter)="addCustomTag()"
+      />
+      <button class="btn-small" (click)="addCustomTag()">Add</button>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn-cancel" (click)="close.emit()">Cancel</button>
+    <button class="btn-save" (click)="createTask()">Create Task</button>
+  </div>
+</div>

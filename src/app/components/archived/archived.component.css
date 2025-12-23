@@ -1,0 +1,47 @@
+.title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #e5e7eb;
+}
+
+.empty {
+  color: #9ca3af;
+  margin-top: 20px;
+}
+
+.archived-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.archived-card {
+  background: #111118;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #1f1f27;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-restore {
+  background: #1f2937;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: #7f1d1d;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}

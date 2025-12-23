@@ -1,0 +1,10 @@
+<div class="confirm-backdrop" (click)="cancel()"></div>
+
+<div class="confirm-box">
+  <p class="confirm-text">{{ message }}</p>
+
+  <div class="confirm-actions">
+    <button class="btn-accept" (click)="accept()">Confirm</button>
+    <button class="btn-cancel" (click)="cancel()">Cancel</button>
+  </div>
+</div>

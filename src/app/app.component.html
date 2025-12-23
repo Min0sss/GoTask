@@ -1,0 +1,42 @@
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">G</div>
+      <div class="sidebar-logo-text">GoTask</div>
+    </div>
+
+    <div class="sidebar-menu">
+      <div class="sidebar-item" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        My Tasks
+      </div>
+
+      <div class="sidebar-item" routerLink="stats" routerLinkActive="active">
+        Statistics
+      </div>
+
+      <div class="sidebar-item" routerLink="archived" routerLinkActive="active">
+        Archived
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-content">
+
+    <div class="topbar">
+      <div class="topbar-title">Task Board</div>
+
+      <div class="topbar-right">
+        <button class="btn-primary" (click)="openCreateModal()">+ New Task</button>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <app-task-create
+      *ngIf="showCreate"
+      (close)="closeCreateModal()">
+    </app-task-create>
+
+  </div>
+</div>

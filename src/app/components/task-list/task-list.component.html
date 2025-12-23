@@ -1,0 +1,16 @@
+<h3>Task List</h3>
+
+<div *ngFor="let t of (tasks$ | async)" class="task-card">
+
+  <div class="task-title">{{ t.title }}</div>
+
+  <div class="task-meta">📌 Priority: <b>{{ t.priority }}</b></div>
+  <div class="task-meta">🚦 Status: <b>{{ t.status }}</b></div>
+  <div class="task-meta">📅 Due Date: <b>{{ t.dueDate }}</b></div>
+
+  <div class="task-meta">
+    📝 {{ t.description || 'No description' }}
+  </div>
+
+  <button class="delete-btn" (click)="delete(t.id)">Delete</button>
+</div>

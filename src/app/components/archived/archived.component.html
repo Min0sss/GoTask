@@ -1,0 +1,23 @@
+<h2 class="title">Archived Tasks</h2>
+
+<div *ngIf="archived.length === 0" class="empty">
+  No archived tasks.
+</div>
+
+<div class="archived-list">
+  <div class="archived-card" *ngFor="let t of archived">
+    <h3>{{ t.title }}</h3>
+    <p>{{ t.description }}</p>
+
+    <div class="actions">
+      <button class="btn-restore" (click)="restore(t.id)">Restore</button>
+      <button class="btn-delete" (click)="askDelete(t.id)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<app-confirm-modal
+  *ngIf="confirmDeleteId"
+  message="Permanently delete this task?"
+  (confirm)="handleConfirm($event)"
+></app-confirm-modal>

@@ -1,0 +1,155 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 430px;
+  transform: translate(-50%, -50%);
+  background: #111118;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid #1f1f27;
+  box-shadow: 0 0 22px rgba(139, 92, 246, 0.35);
+  animation: slideIn 0.25s ease-out;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: #0f0f14;
+  border: 1px solid #1f1f27;
+  color: #e5e7eb;
+}
+
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn-cancel {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #1f1f27;
+  color: #e5e7eb;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-save {
+  padding: 8px 20px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-save:hover {
+  filter: brightness(1.1);
+}
+
+.tag-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tag-option {
+  background: #1f1f27;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #e5e7eb;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.tag-option.active {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+}
+
+.tag-selected-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.tag-selected {
+  background: #292937;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag-x {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.tag-add {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #2d2d36;
+  border: none;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translate(-50%, -46%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}

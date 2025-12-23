@@ -1,0 +1,35 @@
+<form (ngSubmit)="save()">
+  <input
+    type="text"
+    placeholder="Title"
+    [(ngModel)]="title"
+    name="title"
+    required
+  />
+
+  <textarea
+    placeholder="Description"
+    [(ngModel)]="description"
+    name="description"
+  ></textarea>
+
+  <select [(ngModel)]="priority" name="priority">
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+
+  <select [(ngModel)]="status" name="status">
+    <option value="pending">Pending</option>
+    <option value="in-progress">In Progress</option>
+    <option value="completed">Completed</option>
+  </select>
+
+  <input
+    type="date"
+    [(ngModel)]="dueDate"
+    name="dueDate"
+  />
+
+  <button type="submit">Save Task</button>
+</form>

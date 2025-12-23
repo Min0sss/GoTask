@@ -1,0 +1,151 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 460px;
+  max-width: 90%;
+  transform: translate(-50%, -50%);
+  background: #111118;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #292937;
+}
+
+.modal-title {
+  margin-bottom: 18px;
+  color: #f3f4f6;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  background: #0f0f14;
+  border: 1px solid #1f1f27;
+  border-radius: 8px;
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.row .form-group {
+  flex: 1;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tag-option {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #1f1f27;
+  cursor: pointer;
+  color: #e5e7eb;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.tag-option.selected {
+  background: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+}
+
+.tag-input {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-size: 12px;
+  outline: none;
+  padding: 4px;
+}
+
+.tags-selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tag-selected {
+  background: rgba(139, 92, 246, 0.25);
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.remove-tag {
+  background: none;
+  border: none;
+  color: #f87171;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-danger {
+  background: #7f1d1d;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+}
+
+.btn-cancel {
+  background: #1f1f27;
+  color: #e5e7eb;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+}

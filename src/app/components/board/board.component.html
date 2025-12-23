@@ -1,0 +1,152 @@
+<div class="filters-bar">
+  <input
+    #search
+    type="text"
+    placeholder="Search by title or description..."
+    class="filter-input"
+    (input)="updateSearch(search.value)"
+  />
+
+  <select #prio class="filter-select" (change)="updatePriority(prio.value)">
+    <option value="all">All Priorities</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+
+  <select #statusSel class="filter-select" (change)="updateStatus(statusSel.value)">
+    <option value="all">All Statuses</option>
+    <option value="pending">Pending</option>
+    <option value="in-progress">In Progress</option>
+    <option value="completed">Completed</option>
+  </select>
+
+  <select #dueSel class="filter-select" (change)="updateDue(dueSel.value)">
+    <option value="all">All Dates</option>
+    <option value="today">Today Only</option>
+    <option value="week">Next 14 Days</option>
+    <option value="overdue">Overdue</option>
+  </select>
+
+  <select #tagSel class="filter-select" (change)="updateTag(tagSel.value)">
+    <option value="all">All Tags</option>
+    <option *ngFor="let t of allTags" [value]="t">{{ t }}</option>
+  </select>
+</div>
+
+<div class="board-wrapper">
+  <div class="board">
+
+    <div
+      id="pendingList"
+      class="board-column"
+      cdkDropList
+      [cdkDropListConnectedTo]="['inProgressList', 'completedList']"
+      (cdkDropListDropped)="drop($event, 'pending')"
+    >
+      <div class="column-header">
+        <span>To Do</span>
+        <span class="column-badge">{{ pending.length }}</span>
+      </div>
+
+      <div
+        class="task-card"
+        *ngFor="let task of pending"
+        cdkDrag
+        [cdkDragData]="task"
+        (click)="openModal(task)"
+      >
+        <div class="task-title">{{ task.title }}</div>
+        <div class="task-desc">{{ task.description }}</div>
+
+        <div class="task-tags">
+          <span class="tag-mini" *ngFor="let t of task.tags">{{ t }}</span>
+        </div>
+
+        <button
+          class="btn-small btn-archive"
+          (click)="archive(task); $event.stopPropagation()"
+        >
+          Archive
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="inProgressList"
+      class="board-column"
+      cdkDropList
+      [cdkDropListConnectedTo]="['pendingList', 'completedList']"
+      (cdkDropListDropped)="drop($event, 'in-progress')"
+    >
+      <div class="column-header">
+        <span>In Progress</span>
+        <span class="column-badge">{{ inProgress.length }}</span>
+      </div>
+
+      <div
+        class="task-card"
+        *ngFor="let task of inProgress"
+        cdkDrag
+        [cdkDragData]="task"
+        (click)="openModal(task)"
+      >
+        <div class="task-title">{{ task.title }}</div>
+        <div class="task-desc">{{ task.description }}</div>
+
+        <div class="task-tags">
+          <span class="tag-mini" *ngFor="let t of task.tags">{{ t }}</span>
+        </div>
+
+        <button
+          class="btn-small btn-archive"
+          (click)="archive(task); $event.stopPropagation()"
+        >
+          Archive
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="completedList"
+      class="board-column"
+      cdkDropList
+      [cdkDropListConnectedTo]="['pendingList', 'inProgressList']"
+      (cdkDropListDropped)="drop($event, 'completed')"
+    >
+      <div class="column-header">
+        <span>Completed</span>
+        <span class="column-badge">{{ completed.length }}</span>
+      </div>
+
+      <div
+        class="task-card"
+        *ngFor="let task of completed"
+        cdkDrag
+        [cdkDragData]="task"
+        (click)="openModal(task)"
+      >
+        <div class="task-title">{{ task.title }}</div>
+        <div class="task-desc">{{ task.description }}</div>
+
+        <div class="task-tags">
+          <span class="tag-mini" *ngFor="let t of task.tags">{{ t }}</span>
+        </div>
+
+        <button
+          class="btn-small btn-archive"
+          (click)="archive(task); $event.stopPropagation()"
+        >
+          Archive
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-task-modal
+  *ngIf="modalTask"
+  [task]="modalTask"
+  (close)="closeModal()"
+></app-task-modal>

@@ -1,0 +1,34 @@
+<div class="stats-container">
+
+  <h2 class="stats-title">General Statistics</h2>
+
+  <div class="export-buttons">
+    <button class="btn-export" (click)="exportExcel()">Export to Excel</button>
+    <button class="btn-export" (click)="exportPDF()">Export to PDF</button>
+  </div>
+
+  <div class="charts-grid">
+
+    <div class="chart-card">
+      <h3>By Status</h3>
+      <canvas id="statusChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>By Priority</h3>
+      <canvas id="priorityChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>By Tags</h3>
+      <canvas id="tagChart"></canvas>
+    </div>
+
+    <div class="chart-card wide">
+      <h3>Completed (Last 7 Days)</h3>
+      <canvas id="historyChart"></canvas>
+    </div>
+
+  </div>
+
+</div>
