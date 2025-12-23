@@ -8,7 +8,7 @@ This project is a centerpiece of my **front-end professional portfolio**, showca
 
 ## Live Demo
 
-[https://gotask-app.vercel.app/]
+https://go-task-tau.vercel.app/
 
 ## Features
 
