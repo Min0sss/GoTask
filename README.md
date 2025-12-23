@@ -8,7 +8,7 @@ This project is a centerpiece of my **front-end professional portfolio**, showca
 
 ## Live Demo
 
-[Insert Link Here - e.g., https://gotask-app.vercel.app/]
+[https://gotask-app.vercel.app/]
 
 ## Features
 
@@ -94,7 +94,7 @@ GOTASK/
 
 ```
 # Clone repository
-git clone https://github.com/Min0sss/
+git clone https://github.com/Min0sss/GoTask.git
 
 # Install dependencies
 npm install
